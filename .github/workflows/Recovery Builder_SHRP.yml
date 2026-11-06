@@ -96,6 +96,7 @@ jobs:
           ln -sf "$(command -v python)" "$HOME/bin/python2.7"
           echo "$HOME/bin" >> "$GITHUB_PATH"
           python2.7 --version
+          
       - name: Install dependencies
         run: |
           sudo apt-get update
