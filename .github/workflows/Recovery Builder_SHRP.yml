@@ -84,7 +84,18 @@ jobs:
 
       - name: Free disk space
         uses: rokibhasansagar/slimhub_actions@main
+      - name: Set up Python 2.7
+        uses: actions/setup-python@v5
+        with:
+          python-version: '2.7.18'
 
+      - name: Register Python 2.7 executable
+        run: |
+          python --version
+          mkdir -p "$HOME/bin"
+          ln -sf "$(command -v python)" "$HOME/bin/python2.7"
+          echo "$HOME/bin" >> "$GITHUB_PATH"
+          python2.7 --version
       - name: Install dependencies
         run: |
           sudo apt-get update
